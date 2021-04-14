@@ -26,14 +26,14 @@
                 android:scaleType="center"/>
 
             <TextView
-                android:id="@+id/item_kor"
+                android:id="@+id/menu_kor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:text="@string/menu_kor_name"/>
 
             <TextView
-                android:id="@+id/item_eng"
+                android:id="@+id/menu_eng"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/menu_eng_name"/>

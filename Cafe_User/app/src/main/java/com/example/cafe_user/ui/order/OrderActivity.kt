@@ -1,16 +1,22 @@
-package com.example.iotteamproject
+package com.example.cafe_user.ui.order
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.cafe_user.MainActivity
 import com.example.cafe_user.R
+import com.example.cafe_user.ui.home.HomeFragment
+import com.example.cafe_user.ui.order.*
 
 class OrderActivity : AppCompatActivity() {
-    var CoffeeView:CoffeeFragment? = null
-    var JuiceView:JuiceFragment? = null
-    var SmoothieView:SmoothieFragment? = null
-    var BreadView:BreadFragment? = null
-    var DessertView:DessertFragment? = null
+    var CoffeeView: CoffeeFragment? = null
+    var JuiceView: JuiceFragment? = null
+    var SmoothieView: SmoothieFragment? = null
+    var BreadView: BreadFragment? = null
+    var DessertView: DessertFragment? = null
+
+    val fragMainActintent = Intent(this, MainActivity::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +48,8 @@ class OrderActivity : AppCompatActivity() {
         }
         transaction.commit()
     }
-
+    override fun onBackPressed() {
+        startActivity(fragMainActintent)
+    }
 
 }

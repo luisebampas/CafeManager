@@ -1,4 +1,4 @@
-package com.example.iotteamproject
+package com.example.cafe_user.ui.order
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cafe_user.R
+import com.example.cafe_user.ui.menu.menuitem
+import com.example.iotteamproject.OrderRecyclerAdapter
 import kotlinx.android.synthetic.main.order_coffee.*
 
 class CoffeeFragment: Fragment() {
@@ -17,37 +19,40 @@ class CoffeeFragment: Fragment() {
         return view
     }
 
-    var testlist = ArrayList<test_recycle>()
+    var datalist = ArrayList<menuitem>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        for (i in 1..10) {
-            var test = test_recycle(R.drawable.coffee, "$i")
-            testlist.add(test)
-        }
 
-        val adapter1 = context?.let { OrderRecyclerAdapter(it, R.layout.order_detail_menu,testlist) }
-        val adapter2 = context?.let { OrderRecyclerAdapter(it, R.layout.order_detail_menu,testlist) }
-        val adapter3 = context?.let { OrderRecyclerAdapter(it, R.layout.order_detail_menu,testlist) }
+        datalist.add(menuitem(R.drawable.ic_launcher_background, "아메리카노", "ame"
+            , "마시쪙", 5000)
+        )
+
+        datalist.add(menuitem(R.drawable.ic_launcher_background, "카페라떼", "latte"
+            , "호", 6000))
+
+        datalist.add(menuitem(R.drawable.ic_launcher_background, "카페모카", "moca"
+            , "하", 7000))
+
+        val adapter1 = context?.let { OrderRecyclerAdapter(it, R.layout.cardviewitem,datalist) }
+        val adapter2 = context?.let { OrderRecyclerAdapter(it, R.layout.cardviewitem,datalist) }
+        val adapter3 = context?.let { OrderRecyclerAdapter(it, R.layout.cardviewitem,datalist) }
 
         val manager1 = LinearLayoutManager(context)
         manager1.orientation = LinearLayoutManager.HORIZONTAL
-        fruit_recycler1.layoutManager = manager1
+        coffee_recycler1.layoutManager = manager1
 
         val manager2 = LinearLayoutManager(context)
         manager2.orientation = LinearLayoutManager.HORIZONTAL
-        fruit_recycler2.layoutManager = manager2
+        coffee_recycler2.layoutManager = manager2
 
         val manager3 = LinearLayoutManager(context)
         manager3.orientation = LinearLayoutManager.HORIZONTAL
-        fruit_recycler3.layoutManager = manager3
+        coffee_recycler3.layoutManager = manager3
 
-        fruit_recycler1.adapter = adapter1
-        fruit_recycler2.adapter = adapter2
-        fruit_recycler3.adapter = adapter3
+        coffee_recycler1.adapter = adapter1
+        coffee_recycler2.adapter = adapter2
+        coffee_recycler3.adapter = adapter3
 
-        // 데이터 갱신 문제 : 다른 프래그먼트에서 작업한 후에 다시 되돌아왔을 때 데이터 갱신이 되지 않음
-        // this 문제
-        // https://furang-note.tistory.com/21
     }
 }

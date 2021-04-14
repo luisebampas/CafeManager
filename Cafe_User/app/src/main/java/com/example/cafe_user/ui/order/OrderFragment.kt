@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.cafe_user.R
-import com.example.iotteamproject.*
 import kotlinx.android.synthetic.main.order_screen.*
 
 class OrderFragment : Fragment() {
@@ -39,19 +38,19 @@ class OrderFragment : Fragment() {
 
         val manager = childFragmentManager.beginTransaction().replace(R.id.order_menu_fragment,CoffeeView!!).commit()
 
-        cate_bean.setOnClickListener{
+        category_coffee.setOnClickListener{
             val manager = childFragmentManager.beginTransaction().replace(R.id.order_menu_fragment,CoffeeView!!).commit()
         }
-        cate_fruit.setOnClickListener{
+        category_juice.setOnClickListener{
             val manager = childFragmentManager.beginTransaction().replace(R.id.order_menu_fragment,JuiceView!!).commit()
         }
-        cate_dairy.setOnClickListener {
+        category_smoothie.setOnClickListener {
             val manager = childFragmentManager.beginTransaction().replace(R.id.order_menu_fragment,SmoothieView!!).commit()
         }
-        cate_desert.setOnClickListener {
+        category_bread.setOnClickListener {
             val manager = childFragmentManager.beginTransaction().replace(R.id.order_menu_fragment,BreadView!!).commit()
         }
-        cate_macaron.setOnClickListener {
+        category_dessert.setOnClickListener {
             val manager = childFragmentManager.beginTransaction().replace(R.id.order_menu_fragment,DessertView!!).commit()
         }
     }

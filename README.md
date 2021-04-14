@@ -4,9 +4,12 @@
 
 - 관리자앱, 사용자 앱  깃-허브 저장소 통합.
 
-  성시영
-  
-  한상범 - cctv xml, activity 구성
+  심기훈: Cafe_User Main 마무리
+
+   성시영
+
+   한상범 - cctv xml, activity 구성
+
 ### 4.13(화)
 
 #### 개발 진행 현황 

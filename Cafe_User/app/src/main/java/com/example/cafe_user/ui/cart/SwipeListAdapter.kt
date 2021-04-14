@@ -15,13 +15,18 @@ class SwipeListAdapter (var context : Context, var itemlayout : Int, var datalis
 
     inner class MyViewHolder(itemview : View) : RecyclerView.ViewHolder(itemview) {
         var cart_img = itemview.cart_image
+        var menu_kor_name = itemview.item_kor
+        var menu_eng_name = itemview.item_eng
+        var item_size = itemview.item_size
+        var item_count = itemview.item_count
+        var item_price = itemview.item_price
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemview = LayoutInflater.from(context).inflate(itemlayout, null)
-        val myviewholder = MyViewHolder(itemview)
-        return myviewholder
+        val itemView = LayoutInflater.from(context).inflate(itemlayout, null)
+        val myViewholder = MyViewHolder(itemView)
+        return myViewholder
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
@@ -29,10 +34,10 @@ class SwipeListAdapter (var context : Context, var itemlayout : Int, var datalis
         var cart_img = holder.cart_img
         cart_img.setImageResource(datalist[position].cart_img!!)
 
-        var kor = holder.kor_name
+        var kor = holder.menu_kor_name
         kor.text = datalist[position].kor_title!!
 
-        var eng = holder.eng_name
+        var eng = holder.menu_eng_name
         eng.text = datalist[position].eng_title!!
 
         var size = holder.item_size

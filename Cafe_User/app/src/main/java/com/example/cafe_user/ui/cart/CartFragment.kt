@@ -9,7 +9,6 @@ import kotlinx.android.synthetic.main.activity_cart.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cafe_user.ui.payment.Payment
 import com.example.fragment.recycler.SwipeListAdapter
-import kotlinx.android.synthetic.main.item_swipe.*
 
 
 class CartFragment : AppCompatActivity() {
@@ -44,7 +43,7 @@ class CartFragment : AppCompatActivity() {
 
 
         // 결제정보 Payment로 넘기는 intent
-        cart_btn_payment.setOnClickListener {
+        btn_payment.setOnClickListener {
             val cart_items = Intent(this, Payment::class.java).apply {
                 putExtra("table_no", 1)
                 putExtra("price", total_txt.text.toString().toInt())
@@ -53,3 +52,4 @@ class CartFragment : AppCompatActivity() {
         }
     }
 }
+

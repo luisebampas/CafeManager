@@ -35,8 +35,8 @@ class menuadapter (var context : Context, var itemlayout : Int, var datalist : A
 
     inner class MyViewHolder(itemview : View) : RecyclerView.ViewHolder(itemview){
         var menuimg = itemview.menu_image
-        var kor_menu = itemview.item_kor
-        var eng_menu = itemview.item_eng
+        var kor_menu = itemview.menu_kor
+        var eng_menu = itemview.menu_eng
         var detail = itemview.menu_detail
         var price = itemview.price
     }

@@ -14,12 +14,12 @@
     <fragment
         android:id="@+id/navigation_order"
         android:name="com.example.cafe_user.ui.order.OrderFragment"
-        android:label="@string/title_Order"
+        android:label="@string/title_order"
         tools:layout="@layout/fragment_order" />
 
     <fragment
         android:id="@+id/navigation_cart"
         android:name="com.example.cafe_user.ui.cart.CartFragment"
-        android:label="@string/title_Cart"
+        android:label="@string/title_cart"
         tools:layout="@layout/fragment_cart" />
 </navigation>

@@ -50,7 +50,6 @@ class MenuDetail : AppCompatActivity() {
         btn_add_cart.setOnClickListener {
             val menu_data = Intent(this, CartItems::class.java).apply {
                 putExtra("image", byteArray)
-                putExtra("kor_name", item_kor.text)
                 putExtra("temp", tempvalue)
                 putExtra("size", sizevalue)
                 putExtra("price", price.text.toString().toInt())

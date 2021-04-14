@@ -7,10 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cafe_user.ui.menu.menuitem
 import kotlinx.android.synthetic.main.cardviewitem.view.*
-<<<<<<< HEAD
-=======
-import kotlinx.android.synthetic.main.order_detail_menu.view.*
->>>>>>> e66e696c329b8175230bb9172e70e91a85031276
+
 
 class OrderRecyclerAdapter(var context: Context, var itemLayout: Int, var datalist:ArrayList<menuitem>)
     :RecyclerView.Adapter<OrderRecyclerAdapter.OrderViewHolder>() {

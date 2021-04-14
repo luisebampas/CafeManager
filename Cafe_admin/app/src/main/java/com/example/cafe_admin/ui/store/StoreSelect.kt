@@ -1,9 +1,10 @@
-package com.example.cafe_user.ui.store
+package com.example.cafe_admin.ui.store
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.example.cafe_user.R
+import com.example.cafe_admin.R
+import com.example.cafe_user.ui.store.MainFragment
 
 var MainView: MainFragment? = null
 var BeanView: BeanFragment? = null

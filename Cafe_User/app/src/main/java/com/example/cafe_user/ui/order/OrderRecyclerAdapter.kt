@@ -5,15 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.order_detail_menu.view.*
+import com.example.cafe_user.ui.menu.menuitem
+import kotlinx.android.synthetic.main.cardviewitem.view.*
 
-class OrderRecyclerAdapter(var context: Context, var itemLayout: Int, var datalist:ArrayList<test_recycle>)
+class OrderRecyclerAdapter(var context: Context, var itemLayout: Int, var datalist:ArrayList<menuitem>)
     :RecyclerView.Adapter<OrderRecyclerAdapter.OrderViewHolder>() {
 
 
     inner class OrderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val testImgView = itemView.test_img
-        val testTextView = itemView.menu_test
+        var menuimg = itemView.menu_image
+        var kor_menu = itemView.menu_kor
+        var eng_menu = itemView.menu_eng
+        var detail = itemView.menu_detail
+        var price = itemView.price
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
@@ -27,9 +31,15 @@ class OrderRecyclerAdapter(var context: Context, var itemLayout: Int, var datali
     }
 
     override fun onBindViewHolder(holder: OrderViewHolder, position: Int) {
-        var testImg = holder.testImgView
-        var testText = holder.testTextView
-        testImg.setImageResource(datalist.get(position).testImg)
-        testText.setText(datalist.get(position).testText)
+        var menuimg = holder.menuimg
+        menuimg.setImageResource(datalist[position].menuimg!!)
+        var kor = holder.kor_menu
+        kor.text = datalist[position].kor_title!!
+        var eng = holder.eng_menu
+        eng.text = datalist[position].eng_title!!
+        var detail = holder.detail
+        detail.text = datalist[position].menu_detail!!
+        var price = holder.price
+        price.text = datalist[position].price.toString()!!
     }
 }

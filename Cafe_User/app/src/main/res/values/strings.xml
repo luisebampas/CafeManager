@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Cafe_User</string>
+
     <string name="title_home">Cafe</string>
     <string name="title_Order">Order</string>
     <string name="title_Cart">Cart</string>
@@ -14,4 +15,3 @@
     <string name="size_venti">Venti(590ml)</string>
     <string name="menu_price">가격 : ?</string>
     <string name="button_to_cart">장바구니에 담기</string>
-</resources>

@@ -1,4 +1,4 @@
-package com.example.iotteamproject
+package com.example.cafe_user.ui.order
 
 class OrderMenu {
     var MenuImg:Int = 0

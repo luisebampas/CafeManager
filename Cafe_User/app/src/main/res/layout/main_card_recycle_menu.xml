@@ -4,10 +4,18 @@
     android:layout_height="match_parent">
 
 
+    <ImageView
+        android:id="@+id/main_ad"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/temp_ad"
+        android:scaleType="centerCrop"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="80dp"
+        android:layout_weight="2"/>
 
 </LinearLayout>

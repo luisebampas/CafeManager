@@ -8,14 +8,18 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cafe_user.R
 import com.example.cafe_user.ui.menu.menuitem
+<<<<<<< HEAD
 import com.example.iotteamproject.OrderRecyclerAdapter
 import kotlinx.android.synthetic.main.order_coffee.*
+=======
+import com.example.cafe_user.ui.order.OrderRecyclerAdapter
+>>>>>>> e66e696c329b8175230bb9172e70e91a85031276
 import kotlinx.android.synthetic.main.order_dessert.*
 
 class DessertFragment:Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-            val view = inflater.inflate(R.layout.order_dessert,container,false)
+        val view = inflater.inflate(R.layout.order_dessert,container,false)
         return view
     }
 
@@ -30,8 +34,15 @@ class DessertFragment:Fragment() {
         datalist.add(menuitem(R.drawable.ic_launcher_background, "사탕", "latte"
             , "호", 6000))
 
+<<<<<<< HEAD
         datalist.add(menuitem(R.drawable.ic_launcher_background, "초콜렛", "moca"
             , "하", 7000))
+=======
+        datalist.add(
+            menuitem(R.drawable.ic_launcher_background, "초콜렛", "moca"
+            , "하", 7000)
+        )
+>>>>>>> e66e696c329b8175230bb9172e70e91a85031276
 
         val adapter1 = context?.let { OrderRecyclerAdapter(it, R.layout.cardviewitem,datalist) }
         val adapter2 = context?.let { OrderRecyclerAdapter(it, R.layout.cardviewitem,datalist) }

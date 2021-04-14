@@ -8,14 +8,19 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cafe_user.R
 import com.example.cafe_user.ui.menu.menuitem
+<<<<<<< HEAD
 import com.example.iotteamproject.OrderRecyclerAdapter
 import kotlinx.android.synthetic.main.order_bread.*
 import kotlinx.android.synthetic.main.order_coffee.*
+=======
+import com.example.cafe_user.ui.order.OrderRecyclerAdapter
+import kotlinx.android.synthetic.main.order_bread.*
+>>>>>>> e66e696c329b8175230bb9172e70e91a85031276
 
 class BreadFragment:Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-            val view = inflater.inflate(R.layout.order_bread,container,false)
+        val view = inflater.inflate(R.layout.order_bread,container,false)
         return view
     }
 

@@ -1,48 +1,21 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:layout_margin="0dp"
     android:background="#FBF8F8"
     android:padding="0dp"
     tools:context=".ui.cart.CartFragment">
+=======
+    tools:context=".ui.cart.CartFragment"
+    android:background="#ffffff">
+>>>>>>> e66e696c329b8175230bb9172e70e91a85031276
 
-    <ImageView
-        android:id="@+id/banner_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:fadingEdge="horizontal|vertical|none"
-        android:src="@drawable/coffee_banner" />
-
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_height="match_parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/cart_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-        </androidx.recyclerview.widget.RecyclerView>
-
-        <EditText
-            android:id="@+id/total_txt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            android:text="@string/cart_total_price" />
-
-        <Button
-            android:id="@+id/payment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/cart_btn_payment" />
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,8 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.cafe_user.R
+<<<<<<< HEAD
+=======
+import com.example.cafe_user.ui.order.*
+>>>>>>> e66e696c329b8175230bb9172e70e91a85031276
 import kotlinx.android.synthetic.main.order_screen.*
 
 class OrderFragment : Fragment() {

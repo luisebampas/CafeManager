@@ -8,8 +8,14 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
+<<<<<<< HEAD
         android:gravity="center"
         android:layout_marginLeft="20dp"
+=======
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center_vertical"
+>>>>>>> e66e696c329b8175230bb9172e70e91a85031276
         >
         <ImageButton
             android:id="@+id/category_coffee"

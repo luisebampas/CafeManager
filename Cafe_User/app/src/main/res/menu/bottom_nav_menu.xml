@@ -2,18 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
-
-    <item
-        android:id="@+id/navigation_order"
-        android:icon="@drawable/coffee"
-        android:title="@string/title_Order" />
-
-    <item
         android:id="@+id/navigation_cart"
         android:icon="@drawable/cart"
-        android:title="@string/title_Cart" />
+        android:title="@string/title_home" />
+    <item
+        android:id="@+id/navigation_stock"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_stock" />
+
+    <item
+        android:id="@+id/navigation_control"
+        android:icon="@drawable/coffee"
+        android:title="@string/title_control" />
+
+    <item
+        android:id="@+id/navigation_CCTV"
+        android:icon="@drawable/coffee"
+        android:title="@string/title_CCTV" />
 
 </menu>

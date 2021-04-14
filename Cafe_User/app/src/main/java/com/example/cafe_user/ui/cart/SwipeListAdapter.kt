@@ -9,16 +9,13 @@ import com.example.cafe_user.ui.cart.CartItems
 import kotlinx.android.synthetic.main.item_swipe.view.*
 
 
+
 class SwipeListAdapter (var context : Context, var itemlayout : Int, var datalist : ArrayList<CartItems>)
     : RecyclerView.Adapter<SwipeListAdapter.MyViewHolder>(){
 
     inner class MyViewHolder(itemview : View) : RecyclerView.ViewHolder(itemview) {
         var cart_img = itemview.cart_image
-        var kor_name = itemview.item_kor
-        var eng_name = itemview.item_eng
-        var item_size = itemview.item_size
-        var item_count = itemview.item_count
-        var item_price = itemview.item_price
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {

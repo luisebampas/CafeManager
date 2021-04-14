@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Cafe_User</string>
     <string name="title_home">Home</string>
-    <string name="title_Order">Order</string>
-    <string name="title_Cart">Cart</string>
+    <string name="title_stock">Stock</string>
+    <string name="title_CCTV">CCTV</string>
+    <string name="title_control">Control</string>
 
     <string name="menu_kor_name">한글메뉴</string>
     <string name="menu_eng_name">영어메뉴</string>

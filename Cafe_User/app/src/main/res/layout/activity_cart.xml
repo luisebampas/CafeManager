@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_margin="0dp"
     android:background="#FBF8F8"
-    android:padding="0"
+    android:padding="0dp"
     tools:context=".ui.cart.CartFragment">
 
     <ImageView

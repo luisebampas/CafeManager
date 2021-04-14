@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cafe_user.R
+import com.example.iotteamproject.OrderRecyclerAdapter
+import com.example.iotteamproject.test_recycle
+import kotlinx.android.synthetic.main.order_coffee.*
 import kotlinx.android.synthetic.main.store_bean.*
 
 class BeanFragment: Fragment() {

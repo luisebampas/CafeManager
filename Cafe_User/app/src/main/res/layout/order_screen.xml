@@ -9,53 +9,44 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="20dp"
         >
         <ImageButton
-            android:id="@+id/cate_bean"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/category_coffee"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/ic_launcher_background"
             android:layout_marginBottom="30dp"
-            android:tag="1"
-            android:onClick="category_click"
             />
         <ImageButton
-            android:id="@+id/cate_fruit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/category_juice"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/ic_launcher_background"
             android:layout_marginBottom="30dp"
-            android:tag="2"
-            android:onClick="category_click"
             />
         <ImageButton
-            android:id="@+id/cate_dairy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/category_smoothie"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/ic_launcher_background"
             android:layout_marginBottom="30dp"
-            android:tag="3"
-            android:onClick="category_click"
             />
         <ImageButton
-            android:id="@+id/cate_desert"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/category_bread"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/ic_launcher_background"
             android:layout_marginBottom="30dp"
-            android:tag="4"
-            android:onClick="category_click"
             />
         <ImageButton
-            android:id="@+id/cate_macaron"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/category_dessert"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/ic_launcher_background"
-            android:tag="5"
-            android:onClick="category_click"
             />
     </LinearLayout>
+
     <FrameLayout
         android:id="@+id/order_menu_fragment"
         android:layout_width="match_parent"

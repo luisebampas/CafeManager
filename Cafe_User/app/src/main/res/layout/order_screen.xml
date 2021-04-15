@@ -9,7 +9,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginLeft="20dp"
-
+        android:layout_marginRight="20dp"
+        android:gravity="center_vertical"
         >
         <ImageButton
             android:id="@+id/category_coffee"

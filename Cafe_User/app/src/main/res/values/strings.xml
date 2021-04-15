@@ -3,7 +3,8 @@
     <string name="title_home">Home</string>
     <string name="title_order">Order</string>
     <string name="title_cart">Cart</string>
-
+    <string name="title_orderstate">Order State</string>
+    <string name="title_customcontrol">Seat Settings</string>
 
     <string name="menu_kor_name">한글메뉴</string>
     <string name="menu_eng_name">영어메뉴</string>

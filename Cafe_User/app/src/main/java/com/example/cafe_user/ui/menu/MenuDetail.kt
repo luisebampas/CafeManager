@@ -48,7 +48,7 @@ class MenuDetail : AppCompatActivity() {
         val byteArray = stream.toByteArray()
 
         btn_add_cart.setOnClickListener {
-            val menu_data = Intent(this, CartItems::class.java).apply {
+            val menu_data = Intent(this, CartFragment::class.java).apply {
                 putExtra("image", byteArray)
                 putExtra("temp", tempvalue)
                 putExtra("size", sizevalue)

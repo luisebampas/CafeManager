@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.example.cafe_admin.R
 import com.example.cafe_user.ui.store.MainFragment
+import com.example.cafe_user.ui.store.StoreData
 
 var MainView: MainFragment? = null
 var BeanView: BeanFragment? = null
@@ -45,6 +46,7 @@ class StoreSelect : AppCompatActivity() {
         }
         transaction.commit()
     }
+
 
 
 }

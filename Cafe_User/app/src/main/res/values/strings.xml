@@ -11,9 +11,9 @@
     <string name="menu_detail">메뉴설명</string>
     <string name="temp_hot">HOT</string>
     <string name="temp_ice">ICE</string>
-    <string name="size_tall">Tall(355ml)</string>
-    <string name="size_grande">Grande(470ml)</string>
-    <string name="size_venti">Venti(590ml)</string>
+    <string name="size_tall">T (355ml)</string>
+    <string name="size_grande">G (470ml)</string>
+    <string name="size_venti">V (590ml)</string>
     <string name="menu_price">가격 : ?</string>
     <string name="button_to_cart">장바구니에 담기</string>
 

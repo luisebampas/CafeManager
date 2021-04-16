@@ -1,6 +1,7 @@
 package com.example.cafe_user.ui.store
 
-class StoreData {
+data class StoreData (var no: Int, var title: String, var count: Long){
+
 
     inner class DairyStock
         var MenuImg :Int = 0

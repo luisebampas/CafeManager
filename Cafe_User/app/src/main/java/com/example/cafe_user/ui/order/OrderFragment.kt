@@ -27,6 +27,7 @@ class OrderFragment : Fragment() {
     var SmoothieView: SmoothieFragment? = null
     var BreadView: BreadFragment? = null
     var DessertView: DessertFragment? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

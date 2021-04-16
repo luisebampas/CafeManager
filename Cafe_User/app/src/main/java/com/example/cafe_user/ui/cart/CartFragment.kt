@@ -1,6 +1,7 @@
 package com.example.cafe_user.ui.cart
 
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,15 +10,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cafe_user.R
 import kotlinx.android.synthetic.main.activity_cart.*
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.cafe_user.MainActivity
 import com.example.cafe_user.ui.payment.Payment
 import com.example.fragment.recycler.SwipeListAdapter
 
 
+
+
 class CartFragment : Fragment() {
-    var datalist = ArrayList<CartItems>()
+
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -26,7 +28,12 @@ class CartFragment : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.activity_cart, container, false)
+        return view
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val view = inflater.inflate(R.layout.activity_cart, container, false)
         return view
 
     }
@@ -35,7 +42,8 @@ class CartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // MenuDetail에서 직접 받은 data
-//        var data = intent
+
+//        val data = intent
 //        val name = data.getStringExtra("kor_name")
 //        val temp = data.getStringExtra("temp")
 //        val size = data.getStringExtra("size")
@@ -50,7 +58,8 @@ class CartFragment : Fragment() {
 
 
         val cart_adapter = SwipeListAdapter(activity as MainActivity, R.layout.item_swipe, datalist)
-        val manager = LinearLayoutManager(context)
+        val manager = LinearLayoutManager(activity as MainActivity)
+
         manager.orientation = LinearLayoutManager.VERTICAL
         cart_recycler.layoutManager = manager
         cart_recycler.adapter = cart_adapter
@@ -59,11 +68,12 @@ class CartFragment : Fragment() {
 
         // 결제정보 Payment로 넘기는 intent
         btn_payment.setOnClickListener {
-            val cart_items = Intent(context, Payment::class.java).apply {
+
+            val intent = Intent(activity as MainActivity, Payment::class.java).apply{
                 putExtra("table_no", 1)
                 putExtra("price", total_txt.text.toString().toInt())
             }
-            startActivity(cart_items)
+            startActivity(intent)
         }
     }
 }

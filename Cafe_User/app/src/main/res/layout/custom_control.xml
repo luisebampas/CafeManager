@@ -28,15 +28,18 @@
             >
 
             <com.dinuscxj.progressbar.CircleProgressBar
-                android:id="@+id/view"
-                android:layout_width="match_parent"
+                android:id="@+id/led_control_view"
+                android:layout_width="375dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                app:progress_text_size="35sp"
-                app:progress_stroke_width="5sp"
+                app:progress_end_color="#05F4A4"
+                app:progress_start_color="#E5EF1F"
                 app:progress_stroke_cap="round"
-                app:progress_start_color="#FFBB00"
-                app:progress_end_color="#ABF200" />
+                app:progress_stroke_width="5sp"
+                app:progress_text_size="35sp"
+                app:progress_shader="linear"
+                app:line_count="50"
+                />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,6 +54,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 android:text="밝게"
+                android:layout_margin="3dp"
                 />
             <Button
                 android:id="@+id/light_down"
@@ -60,6 +64,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 android:text="어둡게"
+                android:layout_margin="3dp"
                 />
         </LinearLayout>
     </LinearLayout>
@@ -86,6 +91,7 @@
 
             <SeekBar
                 style="@android:style/Widget.Material.Light.SeekBar"
+                android:id="@+id/table_height_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
@@ -135,7 +141,7 @@
             </RadioGroup>
         </LinearLayout>
         <TextView
-            android:id="@+id/height_state"
+            android:id="@+id/table_height_state"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -154,6 +160,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 android:text="올리기"
+                android:layout_margin="3dp"
                 />
             <Button
                 android:id="@+id/table_down"
@@ -163,6 +170,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 android:text="낮추기"
+                android:layout_margin="3dp"
                 />
         </LinearLayout>
     </LinearLayout>
@@ -189,6 +197,7 @@
 
             <SeekBar
                 style="@android:style/Widget.Material.Light.SeekBar"
+                android:id="@+id/blind_height_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
@@ -256,6 +265,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 android:text="올리기"
+                android:layout_margin="3dp"
                 />
             <Button
                 android:id="@+id/blind_down"
@@ -265,6 +275,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
                 android:text="낮추기"
+                android:layout_margin="3dp"
                 />
         </LinearLayout>
 

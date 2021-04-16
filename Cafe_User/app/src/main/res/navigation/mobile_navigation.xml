@@ -25,9 +25,9 @@
 
     <fragment
         android:id="@+id/navigation_ostate"
-        android:name="com.example.cafe_user.ui.custom.CustomControl"
+        android:name="com.example.cafe_user.ui.order.OState"
         android:label="@string/title_orderstate"
-        tools:layout="@layout/custom_control" />
+        tools:layout="@layout/activity_o_state" />
 
     <fragment
         android:id="@+id/navigation_customcontrol"

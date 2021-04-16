@@ -17,7 +17,9 @@ import com.example.fragment.recycler.SwipeListAdapter
 
 
 
+
 class CartFragment : Fragment() {
+
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -31,10 +33,16 @@ class CartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val view = inflater.inflate(R.layout.activity_cart, container, false)
+        return view
 
-        var datalist = ArrayList<CartItems>()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // MenuDetail에서 직접 받은 data
+
 //        val data = intent
 //        val name = data.getStringExtra("kor_name")
 //        val temp = data.getStringExtra("temp")
@@ -51,6 +59,7 @@ class CartFragment : Fragment() {
 
         val cart_adapter = SwipeListAdapter(activity as MainActivity, R.layout.item_swipe, datalist)
         val manager = LinearLayoutManager(activity as MainActivity)
+
         manager.orientation = LinearLayoutManager.VERTICAL
         cart_recycler.layoutManager = manager
         cart_recycler.adapter = cart_adapter
@@ -59,6 +68,7 @@ class CartFragment : Fragment() {
 
         // 결제정보 Payment로 넘기는 intent
         btn_payment.setOnClickListener {
+
             val intent = Intent(activity as MainActivity, Payment::class.java).apply{
                 putExtra("table_no", 1)
                 putExtra("price", total_txt.text.toString().toInt())

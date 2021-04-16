@@ -22,4 +22,26 @@ class DiaryFragment:Fragment() {
                 .start()
         return view
     }
+
+    // 1. data 로딩
+    val data = loadData()
+    // 2, 어댑터 생성
+    val adapter = CustomAdpater()
+    // 3. 어댑터에 데이터 전달
+    recycler.listData = data
+    // 4. 화면에 있는 리싸이클러뷰에 아답터 연결
+    recycler.adapter = adapter
+    // 5. 레이아웃 매니저 연결 - 각각의 뷰들을 담을 레이아웃 설정.
+    recyceler.layoutManager = LinearLayoutManager(this)
+
+
+    fun loadData() : MutableList<StoreData>{
+        val data : MutableList<StoreData> = mutableListOf()
+        for (no in 1..100){
+            val title = "${no}"
+
+        }
+    }
+
 }
+

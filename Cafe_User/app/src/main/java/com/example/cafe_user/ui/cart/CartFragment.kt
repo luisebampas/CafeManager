@@ -1,29 +1,44 @@
 package com.example.cafe_user.ui.cart
 
 
+
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cafe_user.R
 import kotlinx.android.synthetic.main.activity_cart.*
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.example.cafe_user.MainActivity
 import com.example.cafe_user.ui.payment.Payment
 import com.example.fragment.recycler.SwipeListAdapter
 
 
-class CartFragment : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cart)
+class CartFragment : Fragment() {
+
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? {
+
+        val view = inflater.inflate(R.layout.activity_cart, container, false)
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         var datalist = ArrayList<CartItems>()
 
         // MenuDetail에서 직접 받은 data
-        var data = intent
-        val name = data.getStringExtra("kor_name")
-        val temp = data.getStringExtra("temp")
-        val size = data.getStringExtra("size")
+//        val data = intent
+//        val name = data.getStringExtra("kor_name")
+//        val temp = data.getStringExtra("temp")
+//        val size = data.getStringExtra("size")
 
 
         // 임시 data
@@ -34,8 +49,8 @@ class CartFragment : AppCompatActivity() {
         datalist.add(CartItems(R.drawable.ic_launcher_background, "블루베리스무디", "blueberry", "ice", 1, 6500))
 
 
-        val cart_adapter = SwipeListAdapter(this, R.layout.item_swipe, datalist)
-        val manager = LinearLayoutManager(this)
+        val cart_adapter = SwipeListAdapter(activity as MainActivity, R.layout.item_swipe, datalist)
+        val manager = LinearLayoutManager(activity as MainActivity)
         manager.orientation = LinearLayoutManager.VERTICAL
         cart_recycler.layoutManager = manager
         cart_recycler.adapter = cart_adapter
@@ -44,11 +59,11 @@ class CartFragment : AppCompatActivity() {
 
         // 결제정보 Payment로 넘기는 intent
         btn_payment.setOnClickListener {
-            val cart_items = Intent(this, Payment::class.java).apply {
+            val intent = Intent(activity as MainActivity, Payment::class.java).apply{
                 putExtra("table_no", 1)
                 putExtra("price", total_txt.text.toString().toInt())
             }
-            startActivity(cart_items)
+            startActivity(intent)
         }
     }
 }

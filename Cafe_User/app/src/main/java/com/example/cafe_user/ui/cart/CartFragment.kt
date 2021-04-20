@@ -14,8 +14,7 @@ import androidx.fragment.app.Fragment
 import com.example.cafe_user.MainActivity
 import com.example.cafe_user.ui.payment.Payment
 import com.example.fragment.recycler.SwipeListAdapter
-
-
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class CartFragment : Fragment() {

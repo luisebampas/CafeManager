@@ -12,14 +12,19 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/nav_2"
         android:name="com.example.cafe_admin.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_stock"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/nav_3"
         android:name="com.example.cafe_admin.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_control"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/nav_4"
+        android:name="com.example.cafe_admin.ui.cctv.Cctv"
+        android:label="@string/title_CCTV"
+        tools:layout="@layout/cctv" />
 </navigation>

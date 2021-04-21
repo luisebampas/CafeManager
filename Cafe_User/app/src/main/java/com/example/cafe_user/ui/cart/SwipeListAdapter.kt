@@ -1,11 +1,13 @@
 package com.example.fragment.recycler
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cafe_user.ui.cart.CartItems
+import com.example.cafe_user.ui.payment.Payment
 import kotlinx.android.synthetic.main.item_swipe.view.*
 
 
@@ -13,15 +15,7 @@ import kotlinx.android.synthetic.main.item_swipe.view.*
 class SwipeListAdapter (var context : Context, var itemlayout : Int, var datalist : ArrayList<CartItems>)
     : RecyclerView.Adapter<SwipeListAdapter.MyViewHolder>(){
 
-    inner class MyViewHolder(itemview : View) : RecyclerView.ViewHolder(itemview) {
-        var cart_img = itemview.cart_image
-        var menu_kor_name = itemview.item_kor
-        var menu_eng_name = itemview.item_eng
-        var item_size = itemview.item_size
-        var item_count = itemview.item_count
-        var item_price = itemview.item_price
 
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(context).inflate(itemlayout, null)
@@ -54,4 +48,22 @@ class SwipeListAdapter (var context : Context, var itemlayout : Int, var datalis
         return datalist.size
     }
 
+    inner class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
+        var cart_img = itemView.cart_image
+        var menu_kor_name = itemView.item_kor
+        var menu_eng_name = itemView.item_eng
+        var item_size = itemView.item_size
+        var item_count = itemView.item_count
+        var item_price = itemView.item_price
+
+        //
+        init {
+            itemView.cart_btn_delete.setOnClickListener{
+                val intent = Intent(itemView.context, Payment::class.java)
+                intent.putExtra("itemName", menu_kor_name.text)
+                intent.putExtra("itemPrice", item_price.text)
+                itemView.context.startActivity(intent)
+            }
+        }
+    }
 }

@@ -4,6 +4,7 @@ package com.example.cafe_user.ui.cart
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,10 +16,13 @@ import com.example.cafe_user.MainActivity
 import com.example.cafe_user.ui.payment.Payment
 import com.example.fragment.recycler.SwipeListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.item_swipe.*
 
 
 class CartFragment : Fragment() {
+
     var datalist = ArrayList<CartItems>()
+
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -56,8 +60,6 @@ class CartFragment : Fragment() {
         manager.orientation = LinearLayoutManager.VERTICAL
         cart_recycler.layoutManager = manager
         cart_recycler.adapter = cart_adapter
-
-
 
         // 결제정보 Payment로 넘기는 intent
         btn_payment.setOnClickListener {

@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.Bitmap.CompressFormat
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,7 @@ import com.example.cafe_user.ui.cart.CartFragment
 import com.example.cafe_user.ui.cart.CartItems
 import kotlinx.android.synthetic.main.cardviewitem.*
 import kotlinx.android.synthetic.main.menu_detail.*
+import kotlinx.android.synthetic.main.order_screen.*
 import java.io.ByteArrayOutputStream
 
 class MenuDetail : AppCompatActivity() {

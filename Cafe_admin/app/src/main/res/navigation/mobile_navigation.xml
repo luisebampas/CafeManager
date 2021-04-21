@@ -9,17 +9,22 @@
         android:id="@+id/navigation_home"
         android:name="com.example.cafe_admin.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/admin_seatinfo" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/nav_2"
         android:name="com.example.cafe_admin.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_stock"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.cafe_admin.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_customcontrol"
+        android:name="com.example.cafe_admin.ui.custom.CustomControl"
+        android:label="@string/title_control"
+        tools:layout="@layout/custom_control" />
+    <fragment
+        android:id="@+id/nav_4"
+        android:name="com.example.cafe_admin.ui.cctv.Cctv"
+        android:label="@string/title_CCTV"
+        tools:layout="@layout/cctv" />
 </navigation>

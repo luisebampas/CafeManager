@@ -36,7 +36,6 @@ class OState : Fragment() {
         val view = inflater.inflate(R.layout.activity_o_state, container, false)
 
         return view
-
     }
 
 

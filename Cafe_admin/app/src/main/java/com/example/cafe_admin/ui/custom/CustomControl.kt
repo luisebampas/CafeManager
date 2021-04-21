@@ -1,4 +1,4 @@
-package com.example.cafe_user.ui.custom
+package com.example.cafe_admin.ui.custom
 
 
 import android.app.Notification
@@ -18,8 +18,8 @@ import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.core.app.NotificationCompat
 import androidx.fragment.app.Fragment
-import com.example.cafe_user.MainActivity
-import com.example.cafe_user.R
+import com.example.cafe_admin.MainActivity
+import com.example.cafe_admin.R
 import kotlinx.android.synthetic.main.custom_control.*
 import org.eclipse.paho.client.mqttv3.MqttMessage
 import java.lang.Exception

@@ -20,7 +20,9 @@ import kotlinx.android.synthetic.main.item_swipe.*
 
 
 class CartFragment : Fragment() {
-    val datalist = ArrayList<CartItems>()
+
+    var datalist = ArrayList<CartItems>()
+
 
     override fun onCreateView(
             inflater: LayoutInflater,

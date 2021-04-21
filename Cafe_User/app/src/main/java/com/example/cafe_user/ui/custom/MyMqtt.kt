@@ -82,5 +82,25 @@ class MyMqtt(val context: Context, val uri:String) {
         })
     }
 
+    fun publish2(topic:String, payload:String, qos:Int=0){
+        if(mqttClient.isConnected()==false){
+            mqttClient.connect()
+        }
+        val message = MqttMessage()
+        message.payload = payload.toByteArray() //String을 byte배열로 변환 -> 네트워크로 전송이니
+        message.qos = qos
+
+        mqttClient.publish(topic,message,null,object:IMqttActionListener{
+            override fun onSuccess(asyncActionToken: IMqttToken?) {
+                Log.d("mymqtt","publish 성공")
+            }
+
+            override fun onFailure(asyncActionToken: IMqttToken?, exception: Throwable?) {
+                Log.d("mymqtt","publish 실패")
+            }
+
+        })
+    }
+
 
 }

@@ -12,6 +12,7 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
@@ -29,6 +30,8 @@ class CustomControl : Fragment() {
 
     lateinit var mqttClient:MyMqtt
     var checkVal:Int=0
+    var LEDdata:String = ""
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.custom_control,container,false)
@@ -40,7 +43,7 @@ class CustomControl : Fragment() {
         mqttClient = MyMqtt(activity as MainActivity, "tcp://192.168.0.212:1883")
 
         try{
-            mqttClient.connect(arrayOf<String>("Cafe_User/#"))
+            mqttClient.connect(arrayOf<String>("mycafe/#"))
         }catch (e: Exception){
             e.printStackTrace()
         }
@@ -48,10 +51,15 @@ class CustomControl : Fragment() {
         led_control_view.progress = 85
         led_control_view.max = 100
         light_up.setOnClickListener {
-            led_control_view.progress += 1
+            led_control_view.progress += 5
+            LEDdata = "light_up"
+            publish2(LEDdata)
         }
+
         light_down.setOnClickListener {
-            led_control_view.progress -= 1
+            led_control_view.progress -= 5
+            LEDdata = "light_down"
+            publish2(LEDdata)
         }
         // 테이블 높이 제어
 
@@ -59,46 +67,51 @@ class CustomControl : Fragment() {
         //var table_height:Int = 50
         table_up.setOnClickListener {
             checkVal=2
-            table_height_view.incrementProgressBy(2)
+            table_height_view.incrementProgressBy(5)
             //table_height+=2
-            publish(table_height_view.progress.toString())
+            publish("t"+ table_height_view.progress.toString())
 
         }
         table_down.setOnClickListener {
-            table_height_view.incrementProgressBy(-2)
+            table_height_view.incrementProgressBy(-5)
             //table_height-=2
-            publish(table_height_view.progress.toString())
+            publish("t"+ table_height_view.progress.toString())
         }
 
         table_height_level1.setOnClickListener {
             checkVal = 1
             table_height_view.progress = 25
-            publish("25")
+            publish("t25")
         }
         table_height_level2.setOnClickListener {
             table_height_view.progress = 50
-            publish("50")
+            publish("t50")
         }
         table_height_level3.setOnClickListener {
             table_height_view.progress= 75
-            publish("75")
+            publish("t75")
         }
 
         // 블라인드 높이 제어
         blind_up.setOnClickListener {
             blind_height_view.incrementProgressBy(2)
+            publish3("b"+ blind_height_view.progress.toString())
         }
         blind_down.setOnClickListener {
             blind_height_view.incrementProgressBy(-2)
+            publish3("b"+ blind_height_view.progress.toString())
         }
         blind_height_level1.setOnClickListener {
             blind_height_view.progress = 25
+            publish3("b25")
         }
         blind_height_level2.setOnClickListener {
             blind_height_view.progress = 50
+            publish3("b50")
         }
         blind_height_level3.setOnClickListener {
             blind_height_view.progress = 75
+            publish3("b75")
         }
 
         // 이벤트 처리
@@ -109,11 +122,14 @@ class CustomControl : Fragment() {
                     R.id.table_height_view -> {
                         table_height_state.text = "테이블 현재 높이: ${table_height_view.progress}"
                         if(fromUser==true) {
-                            publish(table_height_view.progress.toString())
+                            publish("t"+ table_height_view.progress.toString())
                         }
                     }
                     R.id.blind_height_view -> {
                         blind_height_state.text = "블라인드 현재 높이: ${blind_height_view.progress}"
+                        if(fromUser==true) {
+                            publish3("b"+ blind_height_view.progress.toString())
+                        }
                     }
                 }
             }
@@ -130,10 +146,18 @@ class CustomControl : Fragment() {
         blind_height_view.setOnSeekBarChangeListener(seekBarListener)
     }
 
-    fun publish(table_height:String){
+    fun publish(data:String){
         //mqttClient의 publish 기능의 메소드 호출
-        mqttClient.publish("mycafe/servo",table_height)
+        mqttClient.publish("mycafe/servo",data)
     }
 
+    fun publish2(data:String){
+        //mqttClient의 publish 기능의 메소드 호출
+        mqttClient.publish("mycafe/ledCustom",data)
+    }
 
+    fun publish3(data:String){
+        //mqttClient의 publish 기능의 메소드 호출
+        mqttClient.publish("mycafe/blind",data)
+    }
 }

@@ -14,6 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cafe_admin"
         android:usesCleartextTraffic="true">
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

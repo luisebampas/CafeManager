@@ -23,15 +23,15 @@ class BreadFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        datalist.add(menuitem(R.drawable.ic_launcher_background, "치즈 번", "ame"
-            , "마시쪙", 5000)
+        datalist.add(menuitem(R.drawable.brownies, "초코 브라우니", "Choco Brownie"
+            , "BEST", 4100)
         )
 
-        datalist.add(menuitem(R.drawable.ic_launcher_background, "모카 번", "latte"
-            , "호", 6000))
+        datalist.add(menuitem(R.drawable.raspberrybread, "라즈베리 월넛", "Raspberry Walnut"
+            , "NEW", 4500))
 
-        datalist.add(menuitem(R.drawable.ic_launcher_background, "허니버터브레드", "moca"
-            , "하", 7000))
+        datalist.add(menuitem(R.drawable.cinnamon, "시나몬케이크", "Cinnamon Cake"
+            , "NEW", 4200))
 
         val adapter1 = context?.let { OrderRecyclerAdapter(it, R.layout.cardviewitem,datalist) }
         val adapter2 = context?.let { OrderRecyclerAdapter(it, R.layout.cardviewitem,datalist) }

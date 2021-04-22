@@ -23,15 +23,15 @@ class CoffeeFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        datalist.add(menuitem(R.drawable.ic_launcher_background, "아메리카노", "ame"
-            , "마시쪙", 5000)
+        datalist.add(menuitem(R.drawable.americano, "아메리카노", "Caffe Americano"
+            , "NO.1", 3200)
         )
 
-        datalist.add(menuitem(R.drawable.ic_launcher_background, "카페라떼", "latte"
-            , "호", 6000))
+        datalist.add(menuitem(R.drawable.caffelatte, "카페라떼", "Caffe Latte"
+            , "BEST", 3500))
 
-        datalist.add(menuitem(R.drawable.ic_launcher_background, "카페모카", "moca"
-            , "하", 7000))
+        datalist.add(menuitem(R.drawable.moca, "카페모카", "Caffe Moca"
+            , "추천", 3500))
 
         val adapter1 = context?.let { OrderRecyclerAdapter(it, R.layout.cardviewitem,datalist) }
         val adapter2 = context?.let { OrderRecyclerAdapter(it, R.layout.cardviewitem,datalist) }

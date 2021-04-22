@@ -9,22 +9,38 @@ import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import com.example.cafe_user.R
 import kotlinx.android.synthetic.main.custom_control.*
+import java.lang.Exception
+import android.content.Context as Context
 
 class CustomControl : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.custom_control,container,false)
     }
-
+    lateinit var mqttClient:CustomMqtt
+    var data:String = ""
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //mqtt 통신을 위한 처리: Publisher
+        mqttClient = CustomMqtt(activity as Context, "tcp://192.168.0.44:1883")
+        try {
+            mqttClient.connect(arrayOf<String>("iot/Cafe_User/#"))
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
         led_control_view.progress = 85
         led_control_view.max = 100
         light_up.setOnClickListener {
             led_control_view.progress += 1
+            data = "light_up"
+            publish(data)
         }
         light_down.setOnClickListener {
             led_control_view.progress -= 1
+            data = "light_down"
+            publish(data)
         }
 
         // 테이블 높이 제어
@@ -84,5 +100,8 @@ class CustomControl : Fragment() {
         }
         table_height_view.setOnSeekBarChangeListener(seekBarListener)
         blind_height_view.setOnSeekBarChangeListener(seekBarListener)
+    }
+    fun publish(data:String) {
+        mqttClient.publish("ledCustom",data)
     }
 }

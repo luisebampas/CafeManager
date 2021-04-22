@@ -106,6 +106,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_horizontal"
+                android:visibility="invisible"
                 >
                 <RadioButton
                     android:id="@+id/table_height_level1"
@@ -212,6 +213,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_horizontal"
+                android:visibility="invisible"
                 >
                 <RadioButton
                     android:id="@+id/blind_height_level1"

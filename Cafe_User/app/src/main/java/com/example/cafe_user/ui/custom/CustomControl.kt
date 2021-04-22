@@ -51,13 +51,13 @@ class CustomControl : Fragment() {
         led_control_view.progress = 85
         led_control_view.max = 100
         light_up.setOnClickListener {
-            led_control_view.progress += 5
+            led_control_view.progress += 1
             LEDdata = "light_up"
             publish2(LEDdata)
         }
 
         light_down.setOnClickListener {
-            led_control_view.progress -= 5
+            led_control_view.progress -= 1
             LEDdata = "light_down"
             publish2(LEDdata)
         }
@@ -75,44 +75,33 @@ class CustomControl : Fragment() {
         table_down.setOnClickListener {
             table_height_view.incrementProgressBy(-5)
             //table_height-=2
-            publish("t"+ table_height_view.progress.toString())
+            publish("k"+ table_height_view.progress.toString())
         }
 
-        table_height_level1.setOnClickListener {
-            checkVal = 1
-            table_height_view.progress = 25
-            publish("t25")
-        }
-        table_height_level2.setOnClickListener {
-            table_height_view.progress = 50
-            publish("t50")
-        }
-        table_height_level3.setOnClickListener {
-            table_height_view.progress= 75
-            publish("t75")
-        }
+//        table_height_level1.setOnClickListener {
+//            checkVal = 1
+//            table_height_view.progress = 25
+//            publish("t25")
+//        }
+//        table_height_level2.setOnClickListener {
+//            table_height_view.progress = 50
+//            publish("t50")
+//        }
+//        table_height_level3.setOnClickListener {
+//            table_height_view.progress= 75
+//            publish("t75")
+//        }
 
         // 블라인드 높이 제어
         blind_up.setOnClickListener {
-            blind_height_view.incrementProgressBy(2)
-            publish3("b"+ blind_height_view.progress.toString())
+            blind_height_view.incrementProgressBy(5)
+            publish3("c"+ blind_height_view.progress.toString())
         }
         blind_down.setOnClickListener {
-            blind_height_view.incrementProgressBy(-2)
-            publish3("b"+ blind_height_view.progress.toString())
+            blind_height_view.incrementProgressBy(-5)
+            publish3("d"+ blind_height_view.progress.toString())
         }
-        blind_height_level1.setOnClickListener {
-            blind_height_view.progress = 25
-            publish3("b25")
-        }
-        blind_height_level2.setOnClickListener {
-            blind_height_view.progress = 50
-            publish3("b50")
-        }
-        blind_height_level3.setOnClickListener {
-            blind_height_view.progress = 75
-            publish3("b75")
-        }
+
 
         // 이벤트 처리
         var seekBarListener = object: SeekBar.OnSeekBarChangeListener {

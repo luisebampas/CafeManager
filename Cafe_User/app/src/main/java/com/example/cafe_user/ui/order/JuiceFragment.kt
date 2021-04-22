@@ -22,16 +22,16 @@ class JuiceFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        datalist.add(menuitem(R.drawable.ic_launcher_background, "오렌지", "ame"
-            , "마시쪙", 5000)
+        datalist.add(menuitem(R.drawable.acai, "딸기 아사히 에이드", "Strawberry&Acai"
+            , "Aid", 5000)
         )
 
-        datalist.add(menuitem(R.drawable.ic_launcher_background, "키위", "latte"
-            , "호", 6000))
+        datalist.add(menuitem(R.drawable.kiwi, "딸기 키위 에이드", "Strawberry&Kiwi"
+            , "Aid", 5200))
 
 
-        datalist.add(menuitem(R.drawable.ic_launcher_background, "블루베리", "moca"
-            , "하", 7000))
+        datalist.add(menuitem(R.drawable.guava, "구아바 에이드", "Guava&Passion Fruit"
+            , "Aid", 5500))
 
 
         val adapter1 = context?.let { OrderRecyclerAdapter(it, R.layout.cardviewitem,datalist) }

@@ -21,15 +21,15 @@ class SmoothieFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        datalist.add(menuitem(R.drawable.ic_launcher_background, "사과", "ame"
-            , "마시쪙", 5000)
+        datalist.add(menuitem(R.drawable.strawberry, "딸기스무디", "Strawberry"
+            , "Fresh", 4200)
         )
 
-        datalist.add(menuitem(R.drawable.ic_launcher_background, "파인애플", "latte"
-            , "호", 6000))
+        datalist.add(menuitem(R.drawable.pineapple, "파인애플 코코넛 스무디", "Pineapple&Coconut"
+            , "New", 4500))
 
-        datalist.add(menuitem(R.drawable.ic_launcher_background, "자두", "moca"
-            , "하", 7000))
+        datalist.add(menuitem(R.drawable.mango, "망고 용과 스무디", "Mango&DragonFruit"
+            , "New", 5000))
 
         val adapter1 = context?.let { OrderRecyclerAdapter(it, R.layout.cardviewitem,datalist) }
         val adapter2 = context?.let { OrderRecyclerAdapter(it, R.layout.cardviewitem,datalist) }

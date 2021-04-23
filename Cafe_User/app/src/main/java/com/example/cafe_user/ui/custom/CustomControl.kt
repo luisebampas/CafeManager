@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment
 import com.example.cafe_user.MainActivity
 import com.example.cafe_user.R
 import kotlinx.android.synthetic.main.custom_control.*
+import android.content.Context as Context
 import org.eclipse.paho.client.mqttv3.MqttMessage
 import java.lang.Exception
 import java.util.*
@@ -36,30 +37,31 @@ class CustomControl : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.custom_control,container,false)
     }
-
+    lateinit var mqttClient:CustomMqtt
+    var data:String = ""
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mqttClient = MyMqtt(activity as MainActivity, "tcp://192.168.0.212:1883")
-
-        try{
-            mqttClient.connect(arrayOf<String>("mycafe/#"))
-        }catch (e: Exception){
+        //mqtt 통신을 위한 처리: Publisher
+        mqttClient = CustomMqtt(activity as Context, "tcp://192.168.0.44:1883")
+        try {
+            mqttClient.connect(arrayOf<String>("iot/Cafe_User/#"))
+        } catch (e: Exception) {
             e.printStackTrace()
         }
 
         led_control_view.progress = 85
         led_control_view.max = 100
         light_up.setOnClickListener {
-            led_control_view.progress += 5
-            LEDdata = "light_up"
-            publish2(LEDdata)
+            led_control_view.progress += 1
+            data = "light_up"
+            publish(data)
         }
 
         light_down.setOnClickListener {
-            led_control_view.progress -= 5
-            LEDdata = "light_down"
-            publish2(LEDdata)
+            led_control_view.progress -= 1
+            data = "light_down"
+            publish(data)
         }
         // 테이블 높이 제어
 
@@ -146,6 +148,10 @@ class CustomControl : Fragment() {
         blind_height_view.setOnSeekBarChangeListener(seekBarListener)
     }
 
+    fun publish(data:String) {
+        mqttClient.publish("ledCustom",data)
+
+
     fun publish(data:String){
         //mqttClient의 publish 기능의 메소드 호출
         mqttClient.publish("mycafe/servo",data)
@@ -159,5 +165,6 @@ class CustomControl : Fragment() {
     fun publish3(data:String){
         //mqttClient의 publish 기능의 메소드 호출
         mqttClient.publish("mycafe/blind",data)
+
     }
 }

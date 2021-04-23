@@ -1,12 +1,21 @@
 package com.example.cafe_user.ui.order
 
+import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
+import com.example.cafe_user.MainActivity
 import com.example.cafe_user.R
+import com.example.cafe_user.ui.cart.CartFragment
+import kotlinx.android.synthetic.main.cardviewitem.*
+import kotlinx.android.synthetic.main.menu_detail.*
 import kotlinx.android.synthetic.main.order_screen.*
+import kotlinx.android.synthetic.main.testlayout.*
 
 class OrderFragment : Fragment() {
 
@@ -18,7 +27,6 @@ class OrderFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.order_screen, container, false)
-
         return view
     }
 

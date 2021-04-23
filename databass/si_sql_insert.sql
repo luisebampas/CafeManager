@@ -67,3 +67,4 @@ INSERT INTO buy VALUES (buy_id, 12, 2, '카페라떼', 2);
 
 
 
+menu_cate

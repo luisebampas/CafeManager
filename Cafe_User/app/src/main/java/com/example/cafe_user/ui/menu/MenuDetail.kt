@@ -1,17 +1,14 @@
 package com.example.cafe_user.ui.menu
 
-import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.Bitmap.CompressFormat
+
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cafe_user.R
-import com.example.cafe_user.ui.cart.CartFragment
-import com.example.cafe_user.ui.cart.CartItems
 import kotlinx.android.synthetic.main.cardviewitem.*
 import kotlinx.android.synthetic.main.menu_detail.*
 import java.io.ByteArrayOutputStream
@@ -44,17 +41,6 @@ class MenuDetail : AppCompatActivity() {
 
         val bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.coffee)
         val stream = ByteArrayOutputStream()
-        bitmap.compress(CompressFormat.JPEG, 100, stream)
         val byteArray = stream.toByteArray()
-
-        btn_add_cart.setOnClickListener {
-            val menu_data = Intent(this, CartFragment::class.java).apply {
-                putExtra("image", byteArray)
-                putExtra("temp", tempvalue)
-                putExtra("size", sizevalue)
-                putExtra("price", price.text.toString().toInt())
-            }
-            startActivity(menu_data)
         }
     }
-}

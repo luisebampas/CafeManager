@@ -25,7 +25,7 @@ CREATE TABLE cart (
 	cart_count INT NOT NULL,
 	temp_option INT NOT NULL,
 	size_option INT NOT NULL,
-	cart_price INT NOT NULL,
+	cart_price INT NOT NULL
 );
 	
 CREATE TABLE employee (
@@ -47,7 +47,7 @@ CREATE TABLE buy (
 	cart_id INT,
 	table_id INT NOT NULL,
 	menu_name2 NVARCHAR(20) NOT NULL,
-	payment_price INT NOT NULL,
+	payment_price INT NOT NULL
 );
 
 # 제약조건 

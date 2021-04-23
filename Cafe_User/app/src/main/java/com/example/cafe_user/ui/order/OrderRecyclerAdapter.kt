@@ -1,10 +1,14 @@
 package com.example.cafe_user.ui.order
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cafe_user.ui.cart.CartFragment
 import com.example.cafe_user.ui.menu.menuitem
 import kotlinx.android.synthetic.main.cardviewitem.view.*
 
@@ -19,6 +23,7 @@ class OrderRecyclerAdapter(var context: Context, var itemLayout: Int, var datali
         var eng_menu = itemView.menu_eng
         var detail = itemView.menu_detail
         var price = itemView.price
+        var btn = itemView.btn_add_cart
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
@@ -42,5 +47,9 @@ class OrderRecyclerAdapter(var context: Context, var itemLayout: Int, var datali
         detail.text = datalist[position].menu_detail!!
         var price = holder.price
         price.text = datalist[position].price.toString()!!
+        var btn = holder.btn
+        btn.setOnClickListener {
+            Toast.makeText(context, "장바구니에 담겼습니다.", Toast.LENGTH_LONG).show()
+        }
     }
 }

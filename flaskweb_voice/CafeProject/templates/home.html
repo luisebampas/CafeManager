@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+  #home_title {
+    font-family: 'Shadows Into Light', cursive;
+  }
+  a {
+      text-decoration-line: none;
+      color: #FACC2E;
+      font-weight:bold;
+    }
+  a:hover {
+      color: #FACC2E;
+      text-decoration-line:none;
+  }
+</style>
+<body>
+<div class="session-title" style="text-align:center">
+  <h2 class="display-2" id="home_title">My Little Cafe</h2>
+</div>
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+	<!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+
+	<!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active" style="text-align:center">
+      <img src="{{ url_for('static', filename='Cafe_menu.jpg') }}" alt="Los Angeles" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3><a href="{{  url_for('menu_display') }}">접수 현황</a></h3>
+        <p style="font-weight:bold">주문 접수 내역 확인하기</p>
+      </div>
+    </div>
+    <div class="carousel-item" style="text-align:center">
+      <img src="{{ url_for('static', filename='Food_storage_grey.jpg') }}" alt="Chicago" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3><a href="{{ url_for('storage_display') }}">재고 관리</a></h3>
+        <p style="font-weight:bold">품목별 식자재 관리 현황</p>
+      </div>
+    </div>
+    <div class="carousel-item" style="text-align:center">
+      <img src="{{ url_for('static', filename='exam_3.jpg') }}" alt="New York" width="1100" height="500">
+      <div class="carousel-caption">
+        <h3><a href="{{ url_for('video_display') }}">CCTV 관리</a></h3>
+        <p style="font-weight:bold">창고 주변 감시카메라 현황</p>
+      </div>
+    </div>
+  </div>
+
+	<!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+
+</body>
+</html>

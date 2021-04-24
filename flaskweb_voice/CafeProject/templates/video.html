@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+    a {
+        text-decoration-line: none;
+        color: #ffff;
+        font-weight:bold;
+    }
+    a:hover {
+      color: #FACC2E;
+      text-decoration-line:none;
+    }
+    ul {
+        background-color:#6E6E6E;
+    }
+    #cctv-title {
+        font-family: 'Nanum Pen Script', cursive;
+    }
+</style>
+<body>
+<div class="container" style="text-align:center">
+    <p></p>
+    <h3 id="cctv-title" class="display-4">식자재 주변 창고 상황</h3>
+    <p></p>
+    <ul class="nav nav-tab nav-justified">
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('home_display') }}">홈 화면</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('menu_display') }}">접수 현황 화면</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('storage_display') }}">재고 관리 화면</a>
+        </li>
+    </ul>
+    <p></p>
+    <div class="row" style="box-shadow:5px 5px 5px 5px">
+    </div>
+</div>
+
+</div>
+</body>
+</html>

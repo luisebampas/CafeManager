@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"> </script>
+<style>
+    a {
+        text-decoration-line: none;
+        color: #ffff;
+        font-weight:bold;
+    }
+    a:hover {
+      color: #FACC2E;
+      text-decoration-line:none;
+    }
+    ul {
+        background-color:#6E6E6E;
+    }
+    #storage-title {
+        font-family: 'Nanum Pen Script', cursive;
+    }
+</style>
+<script>
+    var chartSetting = {
+          chart: {
+            type: 'bar'
+          },
+          title: {
+            text: '품목별 재고수량 현황'
+          },
+          xAxis: {
+            categories: ['딸기', '청포도', '망고', '블루베리'],
+            title: {
+              text: null
+            }
+          },
+          yAxis: {
+            min: 0,
+            title: {
+              text: '수량(개수)',
+              align: 'high'
+            }
+          },
+          series: [{
+            name: '개수',
+            data: [107, 31, 250, 500]
+          }]}
+</script>
+<script>
+    $(document).ready(function(){
+        Highcharts.chart('container', chartSetting);
+        Highcharts.chart('container1', chartSetting);
+        Highcharts.chart('container2', {
+          chart: {
+            type: 'bar'
+          },
+          title: {
+            text: '품목별 재고수량 현황'
+          },
+          xAxis: {
+            categories: ['딸기', '청포도', '망고', '블루베리'],
+            title: {
+              text: null
+            }
+          },
+          yAxis: {
+            min: 0,
+            title: {
+              text: '수량(개수)',
+              align: 'high'
+            }
+          },
+          series: [{
+            name: '개수',
+            data: [
+                {
+                    y: 107,
+                    color: '#FF0000'
+                },
+                {
+                    y: 31,
+                    color: '#40FF00'
+                },
+                {
+                    y: 250,
+                    color: '#F7FE2E'
+                },
+                {
+                    y: 500,
+                    color: '#8258FA'
+                }]
+          }]
+        });
+    });
+</script>
+
+<body>
+<div class="session-title" style="text-align:center">
+    <p></p>
+    <h3 id="storage-title" class="display-4">품목별 재고 현황</h3>
+    <p></p>
+    <ul class="nav nav-tab nav-justified">
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('home_display') }}">홈 화면</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('menu_display') }}">접수 현황 화면</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('video_display') }}">CCTV 관리 화면</a>
+        </li>
+    </ul>
+    <p></p>
+</div>
+<figure class="highcharts-figure">
+    <div class="row">
+        <div class="col">
+            <div id="container"></div>
+        </div>
+        <div class="col">
+            <div id="container1"></div>
+        </div>
+        <div class="col">
+            <div id="container2"></div>
+        </div>
+    </div>
+
+</figure>
+</body>
+</html>

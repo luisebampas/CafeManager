@@ -19,9 +19,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_swipe.*
 
 
+
 class CartFragment : Fragment() {
 
+
     var datalist = ArrayList<CartItems>()
+
 
 
     override fun onCreateView(
@@ -61,9 +64,9 @@ class CartFragment : Fragment() {
         cart_recycler.layoutManager = manager
         cart_recycler.adapter = cart_adapter
 
+
         // 결제정보 Payment로 넘기는 intent
         btn_payment.setOnClickListener {
-
             val intent = Intent(activity as MainActivity, Payment::class.java).apply{
                 putExtra("table_no", 1)
                 putExtra("price", total_txt.text.toString().toInt())

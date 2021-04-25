@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"> </script>
+<script>
+    var chartSetting = {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: 0,
+                plotShadow: false
+            },
+            title: {
+                text: '주문 처리 현황',
+                align: 'center',
+                verticalAlign: 'middle',
+                y: 60
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    dataLabels: {
+                        enabled: true,
+                        distance: -50,
+                        style: {
+                            fontWeight: 'bold',
+                            color: 'white'
+                        }
+                    },
+                    startAngle: -90,
+                    endAngle: 90,
+                    center: ['50%', '75%'],
+                    size: '110%'
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '주문 처리 유형',
+                innerSize: '50%',
+                data: [
+                    ['접수 완료', 72.8],
+                    ['접수 취소', 26.6],
+                    {
+                        name: 'Other',
+                        y: 0.6,
+                        dataLabels: {
+                            enabled: true
+                        }
+                    }
+                ]
+            }]
+        }
+</script>
+<script>
+    $(document).ready(function(){
+        Highcharts.chart(order_detail,chartSetting);
+    });
+</script>
+<style>
+    a {
+        text-decoration-line: none;
+        color: #ffff;
+        font-weight:bold;
+    }
+    a:hover {
+      color: #FACC2E;
+      text-decoration-line:none;
+    }
+    ul {
+        background-color:#6E6E6E;
+    }
+    #menu-title {
+        font-family: 'Nanum Pen Script', cursive;
+    }
+</style>
+<body>
+<div class="container" style="text-align:center">
+    <p></p>
+    <h3 id="menu-title" class="display-4"> 주문 접수 현황 </h3>
+    <p></p>
+    <ul class="nav nav-tab nav-justified">
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('home_display') }}">홈 화면</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('storage_display') }}">재고 관리 화면</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('video_display') }}">CCTV 관리 화면</a>
+        </li>
+    </ul>
+    <p></p>
+    <div class="row">
+        <div class="col">
+            <div class="card" style="width:300px">
+                <div class="card-header" style="text-align:center">
+                    <h3> 주문번호 : 1153 </h3>
+                </div>
+                <div class="card-body" style="text-align:center">
+                    <h4 class="card-title"> 4번 테이블 </h4>
+                    <p class="card-text"> 아메리카노 1 </p>
+                    <p class="card-text"> 망고 스무디 1 </p>
+                    <p class="card-text"> 블루베리 스무디 1 </p>
+                    <a href="#" class="btn btn-primary stretched-link"> 접수 완료 </a>
+                </div>
+                <div class="card-footer" style="text-align:center">
+                    <a href="#" class="btn btn-danger stretched-link"> 접수 취소 </a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div id="order_detail"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

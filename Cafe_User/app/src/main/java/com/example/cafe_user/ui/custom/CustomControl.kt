@@ -12,6 +12,7 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
@@ -20,30 +21,32 @@ import androidx.fragment.app.Fragment
 import com.example.cafe_user.MainActivity
 import com.example.cafe_user.R
 import kotlinx.android.synthetic.main.custom_control.*
+import android.content.Context as Context
 import org.eclipse.paho.client.mqttv3.MqttMessage
 import java.lang.Exception
 import java.util.*
 
 
-var table_height:Int = 0
-
 class CustomControl : Fragment() {
 
     lateinit var mqttClient:MyMqtt
+    var checkVal:Int=0
+    var LEDdata:String = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.custom_control,container,false)
     }
-
+    lateinit var mqttClient:CustomMqtt
+    var data:String = ""
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mqttClient = MyMqtt(activity as MainActivity, "tcp://192.168.0.212:1883")
-
-        try{
-            mqttClient.connect(arrayOf<String>("Cafe_User/#"))
-        }catch (e: Exception){
+        //mqtt 통신을 위한 처리: Publisher
+        mqttClient = CustomMqtt(activity as Context, "tcp://192.168.0.44:1883")
+        try {
+            mqttClient.connect(arrayOf<String>("iot/Cafe_User/#"))
+        } catch (e: Exception) {
             e.printStackTrace()
         }
 
@@ -51,61 +54,84 @@ class CustomControl : Fragment() {
         led_control_view.max = 100
         light_up.setOnClickListener {
             led_control_view.progress += 1
+            data = "light_up"
+            publish(data)
         }
+
         light_down.setOnClickListener {
             led_control_view.progress -= 1
+            data = "light_down"
+            publish(data)
         }
         // 테이블 높이 제어
+
+
+        //var table_height:Int = 50
         table_up.setOnClickListener {
-            table_height_view.incrementProgressBy(2)
-            table_height+=2
-            publish(table_height.toString())
+            checkVal=2
+            table_height_view.incrementProgressBy(5)
+            //table_height+=2
+            publish("t"+ table_height_view.progress.toString())
 
         }
         table_down.setOnClickListener {
-            table_height_view.incrementProgressBy(-2)
-            table_height-=2
-            publish(table_height.toString())
+            table_height_view.incrementProgressBy(-5)
+            //table_height-=2
+            publish("t"+ table_height_view.progress.toString())
         }
+
         table_height_level1.setOnClickListener {
+            checkVal = 1
             table_height_view.progress = 25
-            publish("25")
+            publish("t25")
         }
         table_height_level2.setOnClickListener {
             table_height_view.progress = 50
-            publish("50")
+            publish("t50")
         }
         table_height_level3.setOnClickListener {
             table_height_view.progress= 75
-            publish("75")
+            publish("t75")
         }
 
         // 블라인드 높이 제어
         blind_up.setOnClickListener {
             blind_height_view.incrementProgressBy(2)
+            publish3("b"+ blind_height_view.progress.toString())
         }
         blind_down.setOnClickListener {
             blind_height_view.incrementProgressBy(-2)
+            publish3("b"+ blind_height_view.progress.toString())
         }
         blind_height_level1.setOnClickListener {
             blind_height_view.progress = 25
+            publish3("b25")
         }
         blind_height_level2.setOnClickListener {
             blind_height_view.progress = 50
+            publish3("b50")
         }
         blind_height_level3.setOnClickListener {
             blind_height_view.progress = 75
+            publish3("b75")
         }
 
         // 이벤트 처리
         var seekBarListener = object: SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                Log.d("test","${fromUser}")
                 when (seekBar?.id) {
                     R.id.table_height_view -> {
                         table_height_state.text = "테이블 현재 높이: ${table_height_view.progress}"
+                        if(fromUser==true) {
+                            publish("t"+ table_height_view.progress.toString())
+                        }
                     }
                     R.id.blind_height_view -> {
                         blind_height_state.text = "블라인드 현재 높이: ${blind_height_view.progress}"
+                        if(fromUser==true) {
+                            publish3("b"+ blind_height_view.progress.toString())
+                        }
                     }
                 }
             }
@@ -122,10 +148,24 @@ class CustomControl : Fragment() {
         blind_height_view.setOnSeekBarChangeListener(seekBarListener)
     }
 
-    fun publish(table_height:String){
+    fun publish(data:String) {
+        mqttClient.publish("ledCustom",data)
+
+
+    fun publish(data:String){
         //mqttClient의 publish 기능의 메소드 호출
-        mqttClient.publish("mycafe/servo",table_height)
+        mqttClient.publish("mycafe/servo",data)
     }
 
+    fun publish2(data:String){
+        //mqttClient의 publish 기능의 메소드 호출
+        mqttClient.publish("mycafe/ledCustom",data)
+    }
 
+    fun publish3(data:String){
+        //mqttClient의 publish 기능의 메소드 호출
+        mqttClient.publish("mycafe/blind",data)
+
+    }
+>>>>>>> e4a7f06d288868d38441cde9a4b550fc750fdb5b
 }

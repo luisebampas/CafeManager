@@ -22,4 +22,16 @@
         android:name="com.example.cafe_user.ui.cart.CartFragment"
         android:label="@string/title_cart"
         tools:layout="@layout/fragment_cart" />
+
+    <fragment
+        android:id="@+id/navigation_ostate"
+        android:name="com.example.cafe_user.ui.order.OState"
+        android:label="@string/title_orderstate"
+        tools:layout="@layout/activity_o_state" />
+
+    <fragment
+        android:id="@+id/navigation_customcontrol"
+        android:name="com.example.cafe_user.ui.custom.CustomControl"
+        android:label="@string/title_customcontrol"
+        tools:layout="@layout/custom_control" />
 </navigation>

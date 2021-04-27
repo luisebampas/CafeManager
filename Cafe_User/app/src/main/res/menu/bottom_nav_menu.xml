@@ -15,5 +15,14 @@
         android:icon="@drawable/cart"
         android:title="@string/title_cart" />
 
+    <item
+        android:id="@+id/navigation_ostate"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:title="@string/title_orderstate" />
+
+    <item
+        android:id="@+id/navigation_customcontrol"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="@string/title_customcontrol" />
 
 </menu>

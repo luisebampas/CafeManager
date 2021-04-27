@@ -12,6 +12,7 @@
         android:layout_gravity="center"
         >
         <LinearLayout
+            android:id="@+id/air_control_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -21,7 +22,7 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/air_conditioner"
                 android:layout_gravity="center"
                 />
             <LinearLayout
@@ -38,25 +39,58 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textAlignment="center"
                     />
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="          온도"
-                    android:textStyle="bold"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    />
-                <TextView
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="          온도  :"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        />
+                    <TextView
+                        android:id="@+id/air_hum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="textStart"
+                        android:textStyle="bold"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        />
+                </LinearLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="          습도"
-                    android:textStyle="bold"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    />
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="          습도  :"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        />
+                    <TextView
+                        android:id="@+id/air_temp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="textStart"
+                        android:textStyle="bold"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        />
+                </LinearLayout>
+
             </LinearLayout>
             <ImageButton
+                android:id="@+id/air_control"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/imgbtn_state"
+                android:focusableInTouchMode="true"
                 />
         </LinearLayout>
         <LinearLayout
@@ -87,10 +121,13 @@
                         android:textStyle="bold"/>
                 </LinearLayout>
 
-                <ImageView
-                    android:layout_width="300dp"
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/realtime_line1"
+                    android:layout_width="350dp"
                     android:layout_height="500dp"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:src="@drawable/ic_launcher_background"
+                    android:background="#B0E6B3"
+                    />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -140,10 +177,13 @@
                         android:textStyle="bold"/>
                 </LinearLayout>
 
-                <ImageView
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/realtime_line2"
                     android:layout_width="300dp"
                     android:layout_height="500dp"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:src="@drawable/ic_launcher_background"
+                    android:background="#A7DAF1"
+                    />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -195,11 +235,13 @@
                 android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 />
-            <ImageButton
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="300dp"
                 android:layout_height="300dp"
                 android:src="@drawable/ic_launcher_background"
                 android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="2.5dp"
                 />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -231,11 +273,14 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 />
 
-            <ImageButton
-                android:layout_width="match_parent"
-                android:layout_height="350dp"
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/ic_launcher_background"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="2.5dp"
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"

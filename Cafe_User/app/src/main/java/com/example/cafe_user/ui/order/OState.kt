@@ -1,4 +1,4 @@
-package com.example.selftest
+package com.example.cafe_user.ui.order
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -8,23 +8,39 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.*
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.SimpleAdapter
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat.getSystemService
+import androidx.fragment.app.Fragment
+import com.example.cafe_user.MainActivity
 import com.example.cafe_user.R
 import kotlinx.android.synthetic.main.activity_o_state.*
 import kotlin.concurrent.thread
 
-class OState : AppCompatActivity() {
+class OState : Fragment() {
     var datalist = ArrayList<HashMap<String, Any>>()
     var progressVal:Int = 0
     lateinit var handler1: Handler
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_o_state)
+
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? {
+
+        val view = inflater.inflate(R.layout.activity_o_state, container, false)
+
+        return view
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         var item = HashMap<String, Any>()
         item["menu_img"] = R.drawable.img01
@@ -44,7 +60,7 @@ class OState : AppCompatActivity() {
         item["price"] = "7000"
         datalist.add(item)
 
-        val adapter = SimpleAdapter(this, datalist, R.layout.order_state_row,
+        val adapter = SimpleAdapter(activity as MainActivity, datalist, R.layout.order_state_row,
                 arrayOf("menu_img", "menu_name", "menu_option", "menu_pickup",
                         "menu_count", "price"),
                 intArrayOf(R.id.myimg, R.id.txtcust1, R.id.txtcust2, R.id.txtcust3,
@@ -64,7 +80,7 @@ class OState : AppCompatActivity() {
                     order_state_text.text = "주문이 완료 되었습니다."
                     detail_msg.text = "음료가 완성되었습니다."
                     state_img.setImageResource(R.drawable.complete)
-                    var builder = NotificationCompat.Builder(this@OState, "1111")
+                    var builder = NotificationCompat.Builder(activity as MainActivity, "1111")
                             .setSmallIcon(android.R.drawable.ic_notification_overlay)
                             .setContentTitle("주문완료")
                             .setContentText("커피 받아가세요~~~~~")
@@ -78,28 +94,28 @@ class OState : AppCompatActivity() {
                 }
             }
         }
+        test.setOnClickListener {
+            thread {
+                for (i in 1..100){
+                    progressVal = i
+                    SystemClock.sleep(100)
+                    handler1.sendMessage(handler1.obtainMessage())
+                }
+            }
+        }
     }
     fun createNotiChannel(builder : NotificationCompat.Builder, id : String) {
         //낮은 버전의 사용자에 대한 설정
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(id, "mynetworkchannel", NotificationManager.IMPORTANCE_HIGH)
-            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            val notificationManager = activity?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
             notificationManager.notify(Integer.parseInt(id), builder.build())
         } else {
             //이전 버전인 경우
-            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            val notificationManager = activity?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.notify(Integer.parseInt(id), builder.build())
         }
     }
 
-    fun useHandler(view : View){
-        thread {
-            for (i in 1..100){
-                progressVal = i
-                SystemClock.sleep(100)
-                handler1.sendMessage(handler1.obtainMessage())
-            }
-        }
-    }
 }

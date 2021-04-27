@@ -27,6 +27,7 @@ class OrderActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.order_screen)
 
+
         CoffeeView = CoffeeFragment()
         JuiceView = JuiceFragment()
         SmoothieView = SmoothieFragment()

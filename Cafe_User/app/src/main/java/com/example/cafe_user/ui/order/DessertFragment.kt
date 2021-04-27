@@ -23,16 +23,16 @@ class DessertFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        datalist.add(menuitem(R.drawable.ic_launcher_background, "막대과자", "ame"
-            , "마시쪙", 5000)
+        datalist.add(menuitem(R.drawable.chocolate, "솔티드 카라멜 초콜렛", "Salted Caramel Cholate"
+            , "BEST", 4400)
         )
 
-        datalist.add(menuitem(R.drawable.ic_launcher_background, "사탕", "latte"
-            , "호", 6000))
+        datalist.add(menuitem(R.drawable.madeleine, "마들렌", "Madeleine"
+            , "NEW", 4200))
 
 
-        datalist.add(menuitem(R.drawable.ic_launcher_background, "초콜렛", "moca"
-            , "하", 7000))
+        datalist.add(menuitem(R.drawable.snack, "아몬드", "Almond"
+            , "BEST", 4500))
 
         val adapter1 = context?.let { OrderRecyclerAdapter(it, R.layout.cardviewitem,datalist) }
         val adapter2 = context?.let { OrderRecyclerAdapter(it, R.layout.cardviewitem,datalist) }

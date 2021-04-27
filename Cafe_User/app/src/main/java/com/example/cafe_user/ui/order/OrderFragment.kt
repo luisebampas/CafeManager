@@ -13,6 +13,7 @@ import com.example.cafe_user.MainActivity
 import com.example.cafe_user.R
 import com.example.cafe_user.ui.cart.CartFragment
 import kotlinx.android.synthetic.main.cardviewitem.*
+import kotlinx.android.synthetic.main.menu_detail.*
 import kotlinx.android.synthetic.main.order_screen.*
 import kotlinx.android.synthetic.main.testlayout.*
 
@@ -60,11 +61,6 @@ class OrderFragment : Fragment() {
         }
         category_dessert.setOnClickListener {
             val manager = childFragmentManager.beginTransaction().replace(R.id.order_menu_fragment,DessertView!!).commit()
-        }
-
-        btn_add_cart.setOnClickListener{
-            var args = Bundle()
-            args.putString("key")
         }
     }
 }

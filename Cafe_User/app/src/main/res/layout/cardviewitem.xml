@@ -23,7 +23,7 @@
                 android:id="@+id/menu_image"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:scaleType="center"/>
+                android:scaleType="centerCrop"/>
 
             <TextView
                 android:id="@+id/menu_kor"
@@ -101,8 +101,12 @@
                 android:text="@string/menu_price"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
-
-
+            <Button
+                android:id="@+id/btn_add_cart"
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_to_cart" />
 
         </LinearLayout>
 

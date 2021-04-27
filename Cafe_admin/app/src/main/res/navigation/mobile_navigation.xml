@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_customcontrol"
-        android:name="com.example.cafe_admin.ui.custom.CustomControl"
+        android:name="com.example.cafe_admin.ui.environment.EnvironmentFragment"
         android:label="@string/title_control"
         tools:layout="@layout/custom_control" />
     <fragment

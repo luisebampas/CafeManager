@@ -66,7 +66,6 @@ class CustomControl : Fragment() {
 
         //var table_height:Int = 50
         table_up.setOnClickListener {
-            checkVal=2
             table_height_view.incrementProgressBy(5)
             //table_height+=2
             publish("t"+ table_height_view.progress.toString())

@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter
 import android.widget.SimpleAdapter
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat.getSystemService
+import com.example.cafe_user.R
 import kotlinx.android.synthetic.main.activity_o_state.*
 import kotlin.concurrent.thread
 

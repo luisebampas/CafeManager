@@ -167,4 +167,5 @@ class CustomControl : Fragment() {
         mqttClient.publish("mycafe/blind",data)
 
     }
+>>>>>>> e4a7f06d288868d38441cde9a4b550fc750fdb5b
 }
